@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>User Management</title>
+</head>
+<body>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  background-color: gray;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+</style>
+
+<h2  > List of Users</h2>
+<BR>
+        <Table>
+                <TR>
+                    <TH> FirstName</TH>
+                    <TH> LastName</TH>
+                    <TH> Email</TH>
+                    <TH> Role</TH>
+                </TR>
+        {% for instance in user_obj%}
+                  <tr>
+                    <td>{{ instance.user.first_name }}</td>
+                       <td>{{ instance.user.last_name }}</td>
+                       <td>{{ instance.user.email }}</td>
+                      <td>{% if instance.user.is_superuser %} Admin
+                      {% else %} User
+                      {% endif %}</td>
+
+
+                  </tr>
+        {%endfor %}
+        </Table>
+<BR>
+ {% csrf_token %}
+    <P> If you would like to add a New User Please Click below button
+<a href ='/adminapp/adduser/'>Add User</a> </P>
+<BR><BR>
+    <a href ='/adminapp/home/'>Admin Home</a>
+</body>
+</html>

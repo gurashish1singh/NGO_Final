@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donation Amount Form</title>
+</head>
+<body>
+<form method = 'POST' class = 'post_form' action = '.'>
+{% csrf_token %}
+<P> Please select your donation  </P>
+
+    {{ donation_form.as_p }}
+
+<input type = 'submit' value ='save'>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Home Page</title>
+</head>
+<body>
+    {% csrf_token %}
+    <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul>
+      <li class="nav-item">
+        <a class="nav-link" href="/adminapp/eventmanagement/">
+            <span>Event Management</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/adminapp/usermanagement/">
+          <span>Admin Management</span></a>
+      </li>
+         <li class="nav-item active">
+        <a class="nav-link" href="/adminapp/history">
+          <span>Donation History</span></a>
+      </li>
+
+
+    </ul>
+
+</body>
+</html>>

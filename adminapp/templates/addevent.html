@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  background-color: gray;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Event Management</title>
+</head>
+<body>
+{% csrf_token %}
+
+<h2  > Current Events</h2>
+<BR>
+        <Table>
+                <TR>
+                    <TH> Event Name</TH>
+                </TR>
+        {% for instance in event_obj%}
+                  <tr>
+                    <td>{{instance.event_type}}</td>
+                  </tr>
+        {%endfor %}
+        </Table>
+<BR>
+<FORM name="add_event" METHOD="POST">
+    {% csrf_token %}
+    <P> If you would like to add a New Event </P>
+       {{ event_form.as_p}}
+<input type = 'submit' value ='AddEvent'>
+</FORM>
+<BR>
+    <a href ='/adminapp/home/'>Admin Home</a>
+</body>
+</html>

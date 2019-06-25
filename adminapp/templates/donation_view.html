@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  background-color: gray;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Donation History</title>
+</head>
+<body>
+Listing of all donations
+<BR>
+        <Table>
+                <TR>
+                    <TH> Name</TH>
+                    <TH> Date</TH>
+                    <TH> Amount</TH>
+                    <TH> EventType</TH>
+
+                </TR>
+        {% for donation in donation_obj%}
+                  <tr>
+                    <td>{{donation.user.first_name}} {{donation.user.last_name}}</td>
+                       <td>{{donation.timestamp}}</td>
+                       <td>{{donation.amount}}</td>
+                      <td>{{donation.event.event_type}}</td>
+
+                  </tr>
+        {%endfor %}
+        </Table>
+<BR>
+ <a href ='/adminapp/home/'>Admin Home</a>
+</body>
+</html>

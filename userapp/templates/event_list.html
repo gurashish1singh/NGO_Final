@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event List</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th> Event </th>
+        <th> </th>
+    </tr>
+
+{% for event in eventlist %}
+
+    <tr>
+        <form method = 'GET' class = 'get_form' action = '/userapp/donation_form/'>
+            {% csrf_token %}
+            <td> {{ event.donation_type }}
+                <input type = 'hidden' name = event_id value = '{{ event.id}}' > </td>
+            <td><input type="submit" value = "Select"> </td>
+        </form>
+    </tr>
+	{% endfor %}
+</table>
+`
+</body>
+</html>
